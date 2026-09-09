@@ -1,0 +1,30 @@
+name: Static Portfolio CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Verify portfolio files
+        run: |
+          test -f arunportfolio.html
+          test -f style.css
+          test -f README.md
+          test -f Arunphoto.png
+          test -f html5.svg
+          test -f css.svg
+          test -f react.svg
+          test -f git.svg
+          test -f icloud.svg
+          test -f github.svg
+          test -f linkedin-161-svgrepo-com.svg
+          test -f x.svg
